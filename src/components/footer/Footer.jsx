@@ -1,12 +1,13 @@
 import React from "react";
 import { Box, Image, Flex, Text } from "@chakra-ui/react";
-import card from "../assets/payCard.jpeg";
+// import card from "../assets/payCard.jpeg";
+import card from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/payCard.jpeg";
 import FooterAttributes from "./FooterAttributes";
 
 const Footer = () => {
   return (
     <Flex minHeight="100vh" direction="column">
-      <Box flex="1"></Box>
+      <Box flex="1" boxShadow="md"></Box>
       <Box bg="blackAlpha.500" boxShadow="md">
         <FooterAttributes />
       </Box>

@@ -1,12 +1,12 @@
+import cart from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/cart.webp";
+import { Box, HStack, Image, Text } from "@chakra-ui/react";
 import React from "react";
-import cart from "../assets/cart.webp";
-import { HStack, Image, Text, Box } from "@chakra-ui/react";
-import ColorModeSwitch from "./ColorModeSwitch";
-import SearchBar from "./SearchBar";
-import { BsShop } from "react-icons/bs";
-import { VscAccount } from "react-icons/vsc";
 import { BiShoppingBag } from "react-icons/Bi";
 import { AiOutlineHeart } from "react-icons/ai";
+import { BsShop } from "react-icons/bs";
+import { VscAccount } from "react-icons/vsc";
+import ColorModeSwitch from "./ColorModeSwitch";
+import SearchBar from "./SearchBar";
 
 const NavBar = () => {
   return (
