@@ -1,4 +1,4 @@
-import { Box, Button, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Button, SimpleGrid, Heading } from "@chakra-ui/react";
 import React from "react";
 import Paul from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/Paul.jpeg";
 import save from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/save .jpeg";
@@ -11,30 +11,40 @@ import heart from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/as
 import black from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/black.jpeg";
 import dee from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/dee.jpeg";
 import ProductItem from "./ProductItem";
+
 const ProductsHomePage = () => {
+  const boxStyle = {
+    fontFamily: "'Passion One', sans-serif",
+  };
   return (
     <>
-      <Text textAlign="center" fontSize="2xl" paddingTop={12}>
-        OUR COLLECTION
-      </Text>
+      <Heading textAlign="center" paddingTop={12} style={boxStyle}>
+        LATEST COLLECTION
+      </Heading>
       <SimpleGrid
         columns={5}
-        row={3}
+        rows={3}
+        gap={4}
         as="dl"
         textAlign="center"
         paddingTop={10}
         paddingBottom={10}
+        fontWeight="bold"
       >
-        <ProductItem children={Paul} />
-        <ProductItem children={save} />
-        <ProductItem children={sun} />
-        <ProductItem children={autoBam} />
-        <ProductItem children={black} />
-        <ProductItem children={Options} />
-        <ProductItem children={oversize} />
-        <ProductItem children={heart} />
-        <ProductItem children={three} />
-        <ProductItem children={dee} />
+        <ProductItem children={Paul} text="MAMA'S BOY" price="30$" />
+        <ProductItem children={save} text="SUNT LAB" price="32$" />
+        <ProductItem children={sun} text="THE COLOR COLLECTIVE" price="30$" />
+        <ProductItem children={autoBam} text="FERMEE" price="30$" />
+        <ProductItem children={black} text="DAILY PAPER" price="30$" />
+        <ProductItem
+          children={Options}
+          text="FUSION OF PERFECTION"
+          price="70$"
+        />
+        <ProductItem children={oversize} text="SUMMER" price="40$" />
+        <ProductItem children={heart} text="THE SQUARE OF LOVE" price="35$" />
+        <ProductItem children={three} text="TOONIQUE" price="50$" />
+        <ProductItem children={dee} text="ARTIST DECEMBER" price="20$" />
       </SimpleGrid>
       <Box
         paddingBottom={9}
@@ -47,7 +57,7 @@ const ProductsHomePage = () => {
         <Button
           _hover={{
             transform: "scale(1.08)",
-            transition: "trandform .25s ease-in-out",
+            transition: "transform .25s ease-in-out",
           }}
         >
           VIEW ALL PRODUCTS

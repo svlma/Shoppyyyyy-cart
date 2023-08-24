@@ -3,13 +3,13 @@ import { HStack, Image, Text, Stack, Box, Button } from "@chakra-ui/react";
 import arena1 from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/arena1.jpeg";
 import arena2 from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/arena.jpeg";
 import JourneyThroughtStyle from "./JourneyThroughtStyle";
-
+import shop from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/shoppy.png";
 const ReadMore = () => {
   return (
     <>
       <Stack
         style={{
-          backgroundImage: `url(${arena1})`,
+          backgroundImage: `url(${shop})`,
 
           // backgroundSize: "cover",
           backgroundPosition: "center",
@@ -19,7 +19,7 @@ const ReadMore = () => {
           // display: "flex",
           // alignItems: "center",
           // justifyContent: "center",
-          position: "relative",
+          // position: "relative",
         }}
       >
         <HStack>

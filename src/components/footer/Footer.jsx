@@ -6,8 +6,7 @@ import FooterAttributes from "./FooterAttributes";
 
 const Footer = () => {
   return (
-    <Flex minHeight="100vh" direction="column">
-      <Box flex="1" boxShadow="md"></Box>
+    <Flex paddingTop={20} direction="column">
       <Box bg="blackAlpha.500" boxShadow="md">
         <FooterAttributes />
       </Box>

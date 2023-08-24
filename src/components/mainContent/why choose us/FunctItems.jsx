@@ -12,7 +12,7 @@ const FunctItems = ({ item, text }) => {
     <div style={containerStyle}>
       <Box
         fontSize="36px"
-        paddingTop={20}
+        paddingTop={10}
         paddingLeft={3}
         paddingRight={3}
         paddingBottom={2}

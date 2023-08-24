@@ -1,35 +1,27 @@
 import React from "react";
-import Intro from "./components/mainContent/Intro";
-import ReadMore from "./components/mainContent/ReadMore";
-import { Box } from "@chakra-ui/react";
-import Funct from "./components/mainContent/Funct";
-import SalesOff from "./components/mainContent/SalesOff";
-import ProductsHomePage from "./components/mainContent/ProductsHomePage";
-import Reviews from "./components/mainContent/Reviews";
+import goofyCouple from "./assets/goofycouple.jpeg";
+import { Heading } from "@chakra-ui/react";
+
 const MainContent = () => {
   return (
-    <>
-      <Box paddingTop={10}></Box>
-      <Box paddingTop={10}></Box>
-      <Box paddingTop={10}></Box>
-
-      <Intro />
-      <Box paddingTop={10}></Box>
-      <Box paddingTop={10}></Box>
-      <Box paddingTop={10}></Box>
-
-      <Box paddingTop={10} bg="blackAlpha.700" boxShadow="md"></Box>
-      <ReadMore />
-      <Funct />
-      <Box paddingTop={10} bg="blackAlpha.700" boxShadow="md"></Box>
-      <ProductsHomePage />
-
-      <SalesOff />
-      <Reviews />
-      {/* <Box>
-        <Reviews />
-      </Box> */}
-    </>
+    <div
+      style={{
+        backgroundImage: `url(${goofyCouple})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        width: "100vw",
+        height: "100vh",
+        display: "flex", // Use flex display for vertical and horizontal alignment
+        alignItems: "center", // Center vertically
+        justifyContent: "center", // Center horizontally
+        position: "relative", // Ensure proper positioning for child components
+        padding: "20px",
+      }}
+    >
+      <Heading textAlign="center" fontSize="6xl">
+        Summer 2023
+      </Heading>
+    </div>
   );
 };
 
