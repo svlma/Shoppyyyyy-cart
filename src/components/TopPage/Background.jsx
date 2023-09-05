@@ -1,8 +1,9 @@
 import { Box, Button, Heading, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import { BiSolidShoppingBag } from "react-icons/Bi";
-import NavBar from "./Navbar/NavBar.jsx";
+import NavBar from "./Navbar/NavBar";
 import alaka from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/sofia-guaico-ujihpJUpnvY-unsplash.jpg";
+import { Link } from "react-router-dom";
 const Intro = () => {
   const textStyle = {
     fontFamily: "'Playfair Display', sans-serif", // Replace 'Font Name' with the actual font name
@@ -42,10 +43,10 @@ const Intro = () => {
             </Heading>
           </em>
           <Box
-            _hover={{
-              transform: "scale(1.05)",
-              transition: "trandform .8s ease-in-out",
-            }}
+            // _hover={{
+            //   transform: "scale(1.05)",
+            //   transition: "trandform .8s ease-in-out",
+            // }}
             paddingLeft={32}
           >
             <Text fontWeight="bold" fontSize="xl">
@@ -70,17 +71,19 @@ const Intro = () => {
             <Text fontWeight="bold" fontSize="xl" paddingBottom={0}>
               Dozens of styles available
             </Text>
-            <Button
-              colorScheme="black"
-              variant="outline"
-              rightIcon={<BiSolidShoppingBag />}
-              border="4px"
-              borderColor="white.500"
-              fontWeight="bold"
-              width="20%"
-            >
-              SHOP NOW
-            </Button>
+            <Link to="/shop">
+              <Button
+                colorScheme="black"
+                variant="outline"
+                rightIcon={<BiSolidShoppingBag />}
+                border="4px"
+                borderColor="white.500"
+                fontWeight="bold"
+                width="20%"
+              >
+                SHOP NOW
+              </Button>
+            </Link>
           </Stack>
         </Stack>
       </Stack>

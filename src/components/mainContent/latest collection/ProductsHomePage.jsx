@@ -1,7 +1,7 @@
 import { Box, Button, SimpleGrid, Heading } from "@chakra-ui/react";
 import React from "react";
 import Paul from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/Paul.jpeg";
-import save from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/save .jpeg";
+import save from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/save.jpeg";
 import sun from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/sun.jpeg";
 import autoBam from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/autoBAM.png";
 import three from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/three.jpeg";

@@ -1,16 +1,24 @@
 import { Box, HStack, Image, Text } from "@chakra-ui/react";
 import React from "react";
-import { BiShoppingBag } from "react-icons/Bi";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsShop } from "react-icons/bs";
 import { VscAccount } from "react-icons/vsc";
+import { Link } from "react-router-dom";
+import CartButton from "./CartButton";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchBar from "./SearchBar";
 import cart from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/cart.webp";
 
-const NavBar = () => {
+const NavBar = ({ position, shop }) => {
   return (
-    <>
+    <Box
+      as="nav"
+      width="100%"
+      position={position}
+      top="0"
+      zIndex="sticky"
+      bgColor={shop && "white"}
+    >
       <HStack
         padding="10px"
         display="flex"
@@ -18,57 +26,51 @@ const NavBar = () => {
         justifyContent="space-between"
       >
         <HStack>
-          <Image
-            src={cart}
-            boxSize="60px"
-            borderRadius={11}
-            objectFit="cover"
-            margin={2}
-          />
-          <Text
-            fontWeight="bold"
-            color="yellow"
-            fontSize="2xl"
-            bgGradient={[
-              "linear(to-tr, teal.300, yellow.400)",
-              "linear(to-t, blue.200, teal.500)",
-              "linear(to-b, orange.100, purple.300)",
-            ]}
-            bgClip="text"
-            _hover={{
-              transform: "scale(1.03)",
-              transition: "trandform .15s ease-in ",
-            }}
-          >
-            SHOPPYYYYY
-          </Text>
-          <HStack
-            _hover={{
-              transform: "scale(1.09)",
-              transition: "trandform .15s ease-in ",
-            }}
-          >
-            <Box children={<BsShop />} paddingLeft={3} />
-            <Text fontWeight="bold">SHOP</Text>
-          </HStack>
+          <Link to={"/"}>
+            <Image
+              src={cart}
+              boxSize="60px"
+              borderRadius={11}
+              objectFit="cover"
+              margin={2}
+            />
+          </Link>
+          <Link to={"/"}>
+            <Text
+              fontWeight="bold"
+              color="yellow"
+              fontSize="2xl"
+              bgGradient={[
+                "linear(to-tr, teal.300, yellow.400)",
+                "linear(to-t, blue.200, teal.500)",
+                "linear(to-b, orange.100, purple.300)",
+              ]}
+              bgClip="text"
+              _hover={{
+                transform: "scale(1.03)",
+                transition: "trandform .15s ease-in ",
+              }}
+            >
+              SHOPPYYYYY
+            </Text>
+          </Link>
+          <Link to="/shop">
+            <HStack
+              _hover={{
+                transform: "scale(1.09)",
+                transition: "trandform .15s ease-in ",
+              }}
+            >
+              <Box children={<BsShop />} paddingLeft={3} />
+              <Text fontWeight="bold">SHOP</Text>
+            </HStack>
+          </Link>
         </HStack>
         <HStack>
           <Box width="200px">
             <SearchBar />
           </Box>
-
-          <HStack
-            _hover={{
-              transform: "scale(1.09)",
-              transition: "trandform .15s ease-in ",
-            }}
-          >
-            <Box children={<BiShoppingBag />} padding={1} />
-            <Text fontWeight="bold" paddingRight={1}>
-              CART
-            </Text>
-          </HStack>
-
+          <CartButton />
           <HStack
             _hover={{
               transform: "scale(1.09)",
@@ -80,23 +82,24 @@ const NavBar = () => {
               WISHLIST
             </Text>
           </HStack>
+          <Link to={"/login"}>
+            <HStack
+              _hover={{
+                transform: "scale(1.09)",
+                transition: "trandform .15s ease-in ",
+              }}
+            >
+              <Box children={<VscAccount />} padding={1} />
 
-          <HStack
-            _hover={{
-              transform: "scale(1.09)",
-              transition: "trandform .15s ease-in ",
-            }}
-          >
-            <Box children={<VscAccount />} padding={1} />
-            <Text fontWeight="bold" paddingRight={1}>
-              LOGIN
-            </Text>
-          </HStack>
-
+              <Text fontWeight="bold" paddingRight={1}>
+                LOGIN
+              </Text>
+            </HStack>
+          </Link>
           <ColorModeSwitch />
         </HStack>
       </HStack>
-    </>
+    </Box>
   );
 };
 

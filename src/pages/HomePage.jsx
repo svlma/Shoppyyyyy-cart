@@ -1,16 +1,17 @@
 import React from "react";
-import Background from "./components/TopPage/Background";
-import ReadMore from "./components/mainContent/ReadMore";
+import Background from "../components/TopPage/Background";
+import ReadMore from "../components/mainContent/ReadMore";
 import { Box } from "@chakra-ui/react";
-import Funct from "./components/mainContent/why choose us/Funct";
-import SalesOff from "./components/mainContent/SalesOff";
-import ProductsHomePage from "./components/mainContent/latest collection/ProductsHomePage";
-import Reviews from "./components/mainContent/reviews/Reviews";
-import Footer from "./components/footer/Footer";
-const MainContent = () => {
+import Funct from "../components/mainContent/why choose us/Funct";
+import SalesOff from "../components/mainContent/SalesOff";
+import ProductsHomePage from "../components/mainContent/latest collection/ProductsHomePage";
+import Reviews from "../components/mainContent/reviews/Reviews";
+import Footer from "../components/footer/Footer";
+const HomePage = () => {
   return (
     <>
       <Background />
+
       <Box paddingTop={10}></Box>
       <Box paddingTop={10}></Box>
       <Box paddingTop={10}></Box>
@@ -42,4 +43,4 @@ const MainContent = () => {
   );
 };
 
-export default MainContent;
+export default HomePage;
