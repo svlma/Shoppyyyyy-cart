@@ -1,5 +1,5 @@
 import { Box, HStack, Image, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsShop } from "react-icons/bs";
 import { VscAccount } from "react-icons/vsc";
@@ -8,8 +8,15 @@ import CartButton from "./CartButton";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchBar from "./SearchBar";
 import cart from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/assets/cart.webp";
+import WishListPortal from "../Wishlist/WishListPortal";
+import WishListItems from "../Wishlist/WishListItems";
+const BUTTON_WRAPPER_STYLES = {
+  position: "relative",
+  zIndex: 1,
+};
 
 const NavBar = ({ position, shop }) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Box
       as="nav"
@@ -76,11 +83,21 @@ const NavBar = ({ position, shop }) => {
               transform: "scale(1.09)",
               transition: "trandform .15s ease-in ",
             }}
+            style={BUTTON_WRAPPER_STYLES}
+            onClick={() => console.log("clicked")}
           >
             <Box children={<AiOutlineHeart />} padding={1} />
-            <Text fontWeight="bold" paddingRight={1}>
+
+            <Text
+              fontWeight="bold"
+              paddingRight={1}
+              onClick={() => setIsOpen(true)}
+            >
               WISHLIST
             </Text>
+            <WishListPortal open={isOpen} onClose={() => setIsOpen(false)}>
+              <WishListItems />
+            </WishListPortal>
           </HStack>
           <Link to={"/login"}>
             <HStack

@@ -51,7 +51,10 @@ const Shop = () => {
 
   return (
     <>
-      <NavBar position="sticky" shop={true} />
+      <NavBar
+      // position="sticky"
+      // shop={true}
+      />
       <Categories
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
@@ -62,9 +65,8 @@ const Shop = () => {
         gap={4}
         as="dl"
         textAlign="center"
-        paddingTop={5}
-        paddingBottom={5}
         fontWeight="bold"
+        padding={5}
       >
         {storeItems
           .filter(

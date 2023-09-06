@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Card, CardBody, Image, Text, Stack } from "@chakra-ui/react";
+import { Card, CardBody, Image, Text, Stack, Box } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { useItemId } from "../context/itemIdContext";
 import { formatCurrency } from "../utilities/Currency";
+import WishListHeart from "./TopPage/Wishlist/WishListHeart";
+
 const ShopItems = ({ id, price, imgUrl, name }) => {
-  const { setItem } = useItemId();
   const [isHovered, setHovered] = useState(false);
   const imageStyle = {
     width: "450px",
@@ -28,35 +28,28 @@ const ShopItems = ({ id, price, imgUrl, name }) => {
 
   return (
     <>
-      <Link
-        to={`/shop/item/${id}`}
-        onClick={() => {
-          setItem(id);
-        }}
-      >
-        <Card key={id}>
+      <Card key={id} bg="gray.100">
+        <Link to={`/shop/item/${id}`}>
           <Image
             src={imgUrl}
             style={imageStyle}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
           />
-          <CardBody>
-            <Stack>
-              <Text>{name}</Text>
-              {isHovered ? (
-                <Text fontWeight="light" fontSize="sm" style={textStyle}>
-                  <span>{formatCurrency(price)}</span>
-                </Text>
-              ) : (
-                <Text fontWeight="light" fontSize="sm">
-                  .
-                </Text>
-              )}
-            </Stack>
-          </CardBody>
-        </Card>
-      </Link>
+        </Link>
+        <CardBody>
+          <Stack>
+            <Text>{name}</Text>
+            {isHovered ? (
+              <Text fontWeight="light" fontSize="sm" style={textStyle}>
+                <span>{formatCurrency(price)}</span>
+              </Text>
+            ) : (
+              <WishListHeart id={id} />
+            )}
+          </Stack>
+        </CardBody>
+      </Card>
     </>
   );
 };

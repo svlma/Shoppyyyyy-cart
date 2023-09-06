@@ -16,6 +16,7 @@ import { GrFormNext } from "react-icons/gr";
 import { GrFormPrevious } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { useShoppingCart } from "../context/shoppingCartContext";
+import WishListHeart from "../components/TopPage/Wishlist/WishListHeart";
 const ItemInfo = () => {
   const { setItem } = useItemId();
   const { id } = useParams();
@@ -32,10 +33,6 @@ const ItemInfo = () => {
   const nextId = itemId === itemsLength ? 1 : itemId + 1;
   const selectedItem = itemsData.find((item) => item.id === itemId);
   const quantity = getItemQuantity(selectedItem);
-  // Set the item ID in the context using 'setItem'
-  // useEffect(() => {
-  //   setItem(itemId);
-  // }, [itemId, setItem]);
 
   return (
     <>
@@ -121,6 +118,7 @@ const ItemInfo = () => {
                   </HStack>
                 )}
               </div>
+              <WishListHeart id={selectedItem.id} />
             </Box>
           </Box>
 
