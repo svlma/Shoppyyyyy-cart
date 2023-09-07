@@ -28,7 +28,7 @@ const ShopItems = ({ id, price, imgUrl, name }) => {
 
   return (
     <>
-      <Card key={id} bg="gray.100">
+      <Card key={id} shadow="xl">
         <Link to={`/shop/item/${id}`}>
           <Image
             src={imgUrl}
@@ -45,7 +45,9 @@ const ShopItems = ({ id, price, imgUrl, name }) => {
                 <span>{formatCurrency(price)}</span>
               </Text>
             ) : (
-              <WishListHeart id={id} />
+              <Box display="flex" justifyContent="center">
+                <WishListHeart id={id} />
+              </Box>
             )}
           </Stack>
         </CardBody>

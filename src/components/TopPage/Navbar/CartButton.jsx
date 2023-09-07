@@ -9,19 +9,19 @@ import {
   DrawerHeader,
   DrawerOverlay,
   HStack,
-  Input,
   Stack,
   Text,
+  Box,
   useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 import { BiShoppingBag } from "react-icons/Bi";
 import { useShoppingCart } from "../../../context/shoppingCartContext";
+import storeItems from "../../../data/itemsData";
 import { formatCurrency } from "../../../utilities/Currency";
 import CartItem from "../../CartItem";
-import storeItems from "../../../data/itemsData";
 const CartButton = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure(); // Use useDisclosure
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
   const { cartQuantity, cartItems } = useShoppingCart();
 
@@ -34,14 +34,12 @@ const CartButton = () => {
         }}
         onClick={onOpen}
       >
-        {/* <Box padding={1} /> */}
         <Container
           style={{
             width: "1rem",
             height: "1rem",
             position: "relative",
           }}
-          //open the cart drawer on the side
         >
           <BiShoppingBag />
           {cartQuantity > 0 && (
@@ -62,7 +60,6 @@ const CartButton = () => {
               }}
             >
               <Text fontSize="2xs">{cartQuantity}</Text>
-              {/* <Text fontSize="2xs">0</Text> */}
             </div>
           )}
         </Container>
@@ -81,17 +78,53 @@ const CartButton = () => {
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader>CART</DrawerHeader>
+            <DrawerHeader>
+              <HStack>
+                <BiShoppingBag />
+                <Text>CART</Text>
+              </HStack>
+            </DrawerHeader>
+            <hr />
+            {cartQuantity === 0 ? (
+              <DrawerBody>
+                <Container
+                  height="100%"
+                  width="100%"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                >
+                  <Text fontSize="xl" fontWeight="m" color="gray.600">
+                    Your cart is empty
+                  </Text>
+                </Container>
+              </DrawerBody>
+            ) : (
+              <DrawerBody paddingTop={5}>
+                <Stack gap={3}>
+                  {cartItems.map((i) => (
+                    <CartItem
+                      key={i.id}
+                      {...i}
+                      id={i.id}
+                      quantity={i.quantity}
+                    />
+                  ))}
+                </Stack>
+              </DrawerBody>
+            )}
 
-            <DrawerBody>
-              {/* <Input placeholder="Type here..." /> */}
-              <Stack gap={3}>
-                {cartItems.map((i) => (
-                  <CartItem key={i.id} {...i} id={i.id} quantity={i.quantity} />
-                ))}
-              </Stack>
+            <DrawerFooter
+              padding={8}
+              display="flex"
+              justifyContent="space-between"
+              paddingTop={6}
+              fontSize="lg"
+            >
               <Text textAlign="end" fontWeight="bold">
                 TOTAL:
+              </Text>
+              <Text textAlign="end" fontWeight="bold">
                 {formatCurrency(
                   cartItems.reduce((total, cartItem) => {
                     const item = storeItems.find((i) => i.id === cartItem.id);
@@ -100,13 +133,15 @@ const CartButton = () => {
                   }, 0)
                 )}
               </Text>
-            </DrawerBody>
 
-            <DrawerFooter>
-              <Button variant="outline" mr={3} onClick={onClose}>
-                Cancel
-              </Button>
-              <Button colorScheme="blue">Save</Button>
+              {/* <Button
+                  variant="outline"
+                  mr={3}
+                  onClick={onClose}
+                  colorScheme="blue"
+                >
+                  Close
+                </Button> */}
             </DrawerFooter>
           </DrawerContent>
         </Drawer>

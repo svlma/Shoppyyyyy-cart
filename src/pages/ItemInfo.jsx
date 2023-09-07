@@ -7,7 +7,9 @@ import {
   Image,
   Text,
   Button,
+  Container,
   HStack,
+  Stack,
 } from "@chakra-ui/react";
 import NavBar from "../components/TopPage/Navbar/NavBar";
 import itemsData from "../data/itemsData.js";
@@ -17,6 +19,7 @@ import { GrFormPrevious } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { useShoppingCart } from "../context/shoppingCartContext";
 import WishListHeart from "../components/TopPage/Wishlist/WishListHeart";
+import { formatCurrency } from "../utilities/Currency";
 const ItemInfo = () => {
   const { setItem } = useItemId();
   const { id } = useParams();
@@ -37,7 +40,7 @@ const ItemInfo = () => {
   return (
     <>
       <NavBar />
-      <Flex height="87vh">
+      <Flex height="87vh" paddingTop={5}>
         <Flex width="50%">
           <Box
             // bg="green.200"
@@ -76,11 +79,28 @@ const ItemInfo = () => {
           >
             <Box justifyContent="flex-start">
               <Heading>{selectedItem.name}</Heading>
-              <Text>{selectedItem.category}</Text>
-              <Text>{selectedItem.price}</Text>
-              <div>
+              <Text paddingBottom={5} fontSize="xl" color="gray.500">
+                {formatCurrency(selectedItem.price)}
+              </Text>
+              <hr />
+              <HStack paddingTop={2}>
+                <Text>CATEGORY:</Text>
+                {selectedItem.category.map((c) => (
+                  <Text>{c}</Text>
+                ))}
+              </HStack>
+
+              <Container
+                padding={6}
+                paddingRight={20}
+                // bg="facebook.100"
+                display="flex"
+                justifyContent="center"
+              >
                 {quantity === 0 ? (
                   <Button
+                    style={{ width: "300px", height: "60px" }}
+                    fontSize="2xl"
                     onClick={() => {
                       increaseQuantity(selectedItem);
                       // console.log(quantity + " test");
@@ -89,9 +109,9 @@ const ItemInfo = () => {
                     + Add To Cart
                   </Button>
                 ) : (
-                  <HStack>
-                    <div style={{ gap: ".5rem" }}>
-                      <div style={{ gap: ".5rem" }}>
+                  <Container display="flex" justifyContent="center">
+                    <Box height="60px">
+                      <Box display="flex" justifyContent="center">
                         <Button
                           onClick={() => {
                             decreaseQuantity(selectedItem.id);
@@ -100,25 +120,54 @@ const ItemInfo = () => {
                         >
                           -
                         </Button>
-                        <div>
+                        <Text padding={2}>
                           <span>{quantity}</span> in cart
-                        </div>
+                        </Text>
                         <Button onClick={() => increaseQuantity(selectedItem)}>
                           +
                         </Button>
-                      </div>
+                      </Box>
+
                       <Button
                         onClick={() => removeFromCart(selectedItem.id)}
                         variant="danger"
                         size="sm"
+                        paddingLeft={12}
                       >
-                        Remove
+                        -Remove-
                       </Button>
-                    </div>
-                  </HStack>
+                    </Box>
+                  </Container>
                 )}
-              </div>
-              <WishListHeart id={selectedItem.id} />
+              </Container>
+              <Container
+                // padding={6}
+                paddingRight={20}
+                display="flex"
+                justifyContent="center"
+              >
+                <Link to={"/sign"}>
+                  <Button
+                    style={{ width: "300px", height: "60px" }}
+                    fontSize="2xl"
+                    onClick={() => {}}
+                    border="2px solid #333"
+                  >
+                    BUY IT NOW!
+                  </Button>
+                </Link>
+              </Container>
+              <Container
+                padding={6}
+                paddingRight={20}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <WishListHeart id={selectedItem.id} />
+
+                <Text paddingLeft={3}> Add to wishlist</Text>
+              </Container>
             </Box>
           </Box>
 

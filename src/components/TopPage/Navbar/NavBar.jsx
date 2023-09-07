@@ -61,17 +61,18 @@ const NavBar = ({ position, shop }) => {
           justifyContent="space-between"
         >
           <HStack>
-            <Link to={"/"}>
+            {/* <Link to={"/"}>
               <Image
                 src={cart}
-                boxSize="60px"
+                
                 borderRadius={11}
                 objectFit="cover"
-                margin={2}
+                
               />
-            </Link>
+            </Link> */}
             <Link to={"/"}>
               <Text
+                margin={2}
                 fontWeight="bold"
                 color="yellow"
                 fontSize="2xl"
@@ -196,6 +197,7 @@ const NavBar = ({ position, shop }) => {
             ))}
         </SimpleGrid>
       </Box>
+      <hr />
     </>
   );
 };

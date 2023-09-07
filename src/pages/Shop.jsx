@@ -29,7 +29,7 @@ const Categories = ({ selectedCategory, setSelectedCategory }) => {
     <Box paddingLeft={8} paddingTop={8}>
       <Menu>
         <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-          {selectedCategory.label || "All"}
+          {selectedCategory || "All"}
         </MenuButton>
         <MenuList>
           {categories.map((category) => (
