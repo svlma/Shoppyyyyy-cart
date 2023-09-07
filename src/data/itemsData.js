@@ -15,14 +15,14 @@ export default[
   },
   {
     "id": 3,
-    "name": "THE COLOR COLLECTIVE",
+    "name": "THE COLOR bCOLLECTIVE",
     "price": 30,
     "imgUrl": "/src/assets/sun.jpeg",
     "category": ["Men"]
   },
   {
     "id": 4,
-    "name": "FERMEE",
+    "name": "FERMEbE",
     "price": 30,
     "imgUrl": "/src/assets/autoBam.png",
     "category": ["Women"]
