@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Image, Stack, Text } from "@chakra-ui/react";
+import { Box, Card, Image, Stack, Text } from "@chakra-ui/react";
 const ProductItem = ({ children, text, price }) => {
   const [isHovered, setHovered] = useState(false);
   const imageStyle = {
@@ -23,26 +23,36 @@ const ProductItem = ({ children, text, price }) => {
   };
 
   return (
-    <Box>
-      <Image
-        src={children}
-        style={imageStyle}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      />
-      <Stack>
-        <Text>{text}</Text>
-        {isHovered ? (
-          <Text fontWeight="light" fontSize="sm" style={textStyle}>
-            {price}
-          </Text>
-        ) : (
-          <Text fontWeight="light" fontSize="sm">
-            .
-          </Text>
-        )}
-      </Stack>
-    </Box>
+    <Card
+      shadow="2xl"
+      margin={5}
+      paddingBottom={5}
+      display="flex"
+      justifyContent="center"
+      flexDirection="column"
+      textAlign="center"
+    >
+      <Box>
+        <Image
+          src={children}
+          style={imageStyle}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+        />
+        <Stack>
+          <Text>{text}</Text>
+          {isHovered ? (
+            <Text fontWeight="light" fontSize="sm" style={textStyle}>
+              {price}
+            </Text>
+          ) : (
+            <Text fontWeight="light" fontSize="sm">
+              .
+            </Text>
+          )}
+        </Stack>
+      </Box>
+    </Card>
   );
 };
 

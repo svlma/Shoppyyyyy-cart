@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
-import HomePage from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/pages/HomePage.jsx";
-import Layout from "/Users/salma/Repos/Shopping-cart-website/Shopping-Cart/src/pages/Layout.jsx";
-import Login from "./pages/Login";
 import ErrorPage from "./pages/ErrorPage";
-import SignIn from "./pages/SignIn";
-import Shop from "./pages/Shop";
+import HomePage from "./pages/HomePage.jsx";
 import ItemInfo from "./pages/ItemInfo";
+import Layout from "./pages/Layout.jsx";
+import Login from "./pages/Login";
+import Shop from "./pages/Shop";
+import SignIn from "./pages/SignIn";
 
 const router = createBrowserRouter([
   {

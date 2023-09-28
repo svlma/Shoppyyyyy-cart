@@ -1,16 +1,29 @@
 import React from "react";
 import WishListItem from "./WIshListItem";
-import { Stack } from "@chakra-ui/react";
+import { Stack, Text, Box, Center } from "@chakra-ui/react";
 import { useShoppingCart } from "../../../context/shoppingCartContext";
 const WishListItems = () => {
   const { wishList } = useShoppingCart();
   return (
     <>
-      <Stack gap={3}>
-        {wishList.map((i) => (
-          <WishListItem key={i.id} {...i} id={i.id} />
-        ))}
-      </Stack>
+      {wishList.length === 0 ? (
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          height="80%"
+        >
+          <Text fontSize="2xl" fontWeight="m" color="gray.600">
+            Your wishlist is empty
+          </Text>
+        </Box>
+      ) : (
+        <Stack gap={3}>
+          {wishList.map((i) => (
+            <WishListItem key={i.id} {...i} id={i.id} />
+          ))}
+        </Stack>
+      )}
     </>
   );
 };

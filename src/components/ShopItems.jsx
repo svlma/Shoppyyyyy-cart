@@ -28,7 +28,7 @@ const ShopItems = ({ id, price, imgUrl, name }) => {
 
   return (
     <>
-      <Card key={id} shadow="xl">
+      <Card key={id} shadow="2xl">
         <Link to={`/shop/item/${id}`}>
           <Image
             src={imgUrl}

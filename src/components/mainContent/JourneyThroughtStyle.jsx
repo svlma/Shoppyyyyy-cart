@@ -3,18 +3,18 @@ import React from "react";
 
 const JourneyThroughtStyle = () => {
   const textStyle = {
-    fontFamily: "'Handjet', sans-serif", // Replace 'Font Name' with the actual font name
+    fontFamily: "'Handjet', sans-serif",
   };
   const textStyle2 = {
-    fontFamily: "'Handjet', inter", // Replace 'Font Name' with the actual font name
+    fontFamily: "'Handjet', inter",
   };
   return (
-    <Box bg="blackAlpha.700" padding={10}>
-      <Text fontSize="3xl" style={textStyle2}>
+    <Box bg="blackAlpha.900" padding={10}>
+      <Text fontSize="3xl" style={textStyle2} color="white">
         JOURNEY THROUGH STYLE
       </Text>
       <Box>
-        <Text paddingTop={3} style={textStyle} fontSize="2xl">
+        <Text paddingTop={3} style={textStyle} fontSize="2xl" color="white">
           " Discover our newest assortment, 'Journey Through Style,'
           <br />
           spotlighting exquisite selections from our cherished T-Shirt Odyssey.

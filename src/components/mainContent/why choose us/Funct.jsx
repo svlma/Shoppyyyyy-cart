@@ -11,22 +11,30 @@ const Funct = () => {
   };
   return (
     <>
-      <Heading textAlign="center" paddingTop={16} style={boxStyle}>
+      <Heading
+        textAlign="center"
+        paddingTop={16}
+        style={boxStyle}
+        color="white"
+      >
         Why choose us
       </Heading>
       <SimpleGrid columns={4} as="dl" textAlign="center">
-        <FunctItems text="Be apart of something bigger" item={<BsPuzzle />} />
+        <FunctItems
+          text="Be apart of something bigger"
+          item={<BsPuzzle color="white" />}
+        />
         <FunctItems
           text="Sustainable materials and packaging"
-          item={<PiFlowerTulipFill />}
+          item={<PiFlowerTulipFill color="white" />}
         />
         <FunctItems
           text="Free and fast delivery nationwide"
-          item={<FaShippingFast />}
+          item={<FaShippingFast color="white" />}
         />
         <FunctItems
           text="Buy now and pay later with afterPay or zippay"
-          item={<GiSwipeCard />}
+          item={<GiSwipeCard color="white" />}
         />
       </SimpleGrid>
     </>

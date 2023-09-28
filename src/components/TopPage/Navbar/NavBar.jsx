@@ -40,10 +40,9 @@ const NavBar = ({ position, shop }) => {
       return item.name.toLowerCase().includes(query.toLowerCase());
     });
   }, [query]);
-  console.log(filteredItems);
+
   const emptySearch = filteredItems.length === 0 ? true : false;
 
-  console.log(emptySearch);
   return (
     <>
       <Box
@@ -53,6 +52,7 @@ const NavBar = ({ position, shop }) => {
         top="0"
         zIndex="sticky"
         bgColor={shop && "white"}
+        shadow="lg"
       >
         <HStack
           padding="10px"
@@ -61,15 +61,6 @@ const NavBar = ({ position, shop }) => {
           justifyContent="space-between"
         >
           <HStack>
-            {/* <Link to={"/"}>
-              <Image
-                src={cart}
-                
-                borderRadius={11}
-                objectFit="cover"
-                
-              />
-            </Link> */}
             <Link to={"/"}>
               <Text
                 margin={2}
@@ -104,7 +95,6 @@ const NavBar = ({ position, shop }) => {
           </HStack>
           <HStack>
             <Box width="200px">
-              {/* Pass setQuery to SearchBar */}
               <SearchBar query={query} setQuery={setQuery} />
             </Box>
             <CartButton />
@@ -197,7 +187,7 @@ const NavBar = ({ position, shop }) => {
             ))}
         </SimpleGrid>
       </Box>
-      <hr />
+      {/* <hr /> */}
     </>
   );
 };

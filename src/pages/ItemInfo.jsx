@@ -10,6 +10,7 @@ import {
   Container,
   HStack,
   Stack,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import NavBar from "../components/TopPage/Navbar/NavBar";
 import itemsData from "../data/itemsData.js";
@@ -20,6 +21,10 @@ import { Link } from "react-router-dom";
 import { useShoppingCart } from "../context/shoppingCartContext";
 import WishListHeart from "../components/TopPage/Wishlist/WishListHeart";
 import { formatCurrency } from "../utilities/Currency";
+import { TbHanger } from "react-icons/tb";
+import { AiOutlineRight } from "react-icons/ai";
+import { AiOutlineExclamationCircle } from "react-icons/ai";
+
 const ItemInfo = () => {
   const { setItem } = useItemId();
   const { id } = useParams();
@@ -79,20 +84,64 @@ const ItemInfo = () => {
           >
             <Box justifyContent="flex-start">
               <Heading>{selectedItem.name}</Heading>
-              <Text paddingBottom={5} fontSize="xl" color="gray.500">
+              <Text paddingBottom={8} fontSize="xl" color="gray.500">
                 {formatCurrency(selectedItem.price)}
               </Text>
               <hr />
-              <HStack paddingTop={2}>
-                <Text>CATEGORY:</Text>
+              <HStack paddingTop={5}>
+                <Text fontSize="xl">CATEGORY:</Text>
                 {selectedItem.category.map((c) => (
                   <Text>{c}</Text>
                 ))}
               </HStack>
+              <HStack paddingTop={4}>
+                <TbHanger />
+                <Text fontSize="xl">Size :</Text>
+                {selectedItem.sizes.map((i) => (
+                  <SimpleGrid row={1}>
+                    <Box borderRadius={2} bg="gray.200" border="1px solid #333">
+                      <Text fontSize="xs" paddingLeft={1} paddingRight={1}>
+                        {i}
+                      </Text>
+                    </Box>
+                  </SimpleGrid>
+                ))}
+              </HStack>
+              <HStack paddingTop={4}>
+                <AiOutlineExclamationCircle />
 
+                <Text fontSize="xl">
+                  {selectedItem.quantityLeft} Left in stock
+                </Text>
+              </HStack>
+              <HStack
+                // padding={6}
+                paddingTop={4}
+                display="flex"
+                // justifyContent="center"
+                paddingBottom={8}
+                // bg="green"
+              >
+                <Link to={"/sign"}>
+                  <Button
+                    style={{ width: "420px", height: "30px" }}
+                    gap={3}
+                    variant="outline"
+                  >
+                    <Text fontSize="xs">
+                      log in and enter your measurements for size
+                      recommendations
+                    </Text>
+                    <AiOutlineRight />
+                  </Button>
+                </Link>
+              </HStack>
+              <hr />
               <Container
-                padding={6}
-                paddingRight={20}
+                paddingTop={8}
+                paddingleft={6}
+                paddingBottom={6}
+                paddingRight={6}
                 // bg="facebook.100"
                 display="flex"
                 justifyContent="center"
@@ -101,6 +150,7 @@ const ItemInfo = () => {
                   <Button
                     style={{ width: "300px", height: "60px" }}
                     fontSize="2xl"
+                    shadow="xl"
                     onClick={() => {
                       increaseQuantity(selectedItem);
                       // console.log(quantity + " test");
@@ -117,32 +167,43 @@ const ItemInfo = () => {
                             decreaseQuantity(selectedItem.id);
                             console.log(quantity);
                           }}
+                          variant="outline"
+                          fontSize="2xl"
                         >
-                          -
+                          <Text>-</Text>
                         </Button>
-                        <Text padding={2}>
+                        <Text
+                          padding={2}
+                          fontWeight="bold"
+                          paddingLeft={5}
+                          paddingRight={5}
+                        >
                           <span>{quantity}</span> in cart
                         </Text>
-                        <Button onClick={() => increaseQuantity(selectedItem)}>
-                          +
+                        <Button
+                          onClick={() => increaseQuantity(selectedItem)}
+                          variant="outline"
+                          fontSize="2xl"
+                        >
+                          <Text>+</Text>
                         </Button>
                       </Box>
-
-                      <Button
-                        onClick={() => removeFromCart(selectedItem.id)}
-                        variant="danger"
-                        size="sm"
-                        paddingLeft={12}
-                      >
-                        -Remove-
-                      </Button>
+                      <Box paddingLeft={14}>
+                        <Button
+                          onClick={() => removeFromCart(selectedItem.id)}
+                          height="6"
+                          size="sm"
+                        >
+                          Remove
+                        </Button>
+                      </Box>
                     </Box>
                   </Container>
                 )}
               </Container>
               <Container
                 // padding={6}
-                paddingRight={20}
+                paddingRight={6}
                 display="flex"
                 justifyContent="center"
               >
@@ -152,11 +213,13 @@ const ItemInfo = () => {
                     fontSize="2xl"
                     onClick={() => {}}
                     border="2px solid #333"
+                    shadow="xl"
                   >
                     BUY IT NOW!
                   </Button>
                 </Link>
               </Container>
+
               <Container
                 padding={6}
                 paddingRight={20}

@@ -42,13 +42,7 @@ const Intro = () => {
               <br />
             </Heading>
           </em>
-          <Box
-            // _hover={{
-            //   transform: "scale(1.05)",
-            //   transition: "trandform .8s ease-in-out",
-            // }}
-            paddingLeft={32}
-          >
+          <Box paddingLeft={32}>
             <Text fontWeight="bold" fontSize="xl">
               <br />
               IT'S THAT TIME OF YEAR, AGAIN.
@@ -62,9 +56,6 @@ const Intro = () => {
             </Text>
           </Box>
           <Stack paddingLeft={732}>
-            {/* <Text fontWeight="md" fontSize="lg">
-              The joy of summer
-            </Text> */}
             <Text fontWeight="bold" fontSize="7xl" style={textStyle}>
               Up to 50% off
             </Text>

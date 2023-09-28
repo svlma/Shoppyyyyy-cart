@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useContext } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 const shoppingCartContext = createContext({});
@@ -8,7 +8,7 @@ export function useShoppingCart() {
 }
 
 export function ShoppingCartProvider({ children }) {
-  // const [isOpen, setIsOpen] = useState(false);
+  //CART
   const [cartItems, setCartItem] = useLocalStorage("cartItems", []);
 
   const openCart = () => setIsOpen(true);
@@ -68,7 +68,6 @@ export function ShoppingCartProvider({ children }) {
   };
 
   //WISHLIST
-
   const [wishList, setWishList] = useLocalStorage("WishList", []);
 
   const AddItemsToWishList = (selectedItem) => {

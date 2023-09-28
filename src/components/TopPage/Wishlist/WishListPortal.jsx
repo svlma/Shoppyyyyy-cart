@@ -1,4 +1,11 @@
-import { Box, CloseButton, HStack, Text, useColorMode } from "@chakra-ui/react";
+import {
+  Box,
+  CloseButton,
+  HStack,
+  Text,
+  useColorMode,
+  Center,
+} from "@chakra-ui/react";
 import React from "react";
 import ReactDom from "react-dom";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -35,9 +42,15 @@ const WishListPortal = ({ open, children, onClose }) => {
       <div style={OVERLAY_STYLES} onClick={onClose} />
       <Box style={MODAL_STYLES} borderRadius={7} height="70%" width="40%">
         <HStack padding={6}>
-          <Box display="flex" justifyContent="center" width="95%">
+          <Box
+            display="flex"
+            justifyContent="center"
+            width="95%"
+            paddingLeft={6}
+          >
             <AiOutlineHeart size={30} />
-            <Text fontSize="xl" fontWeight="bold">
+
+            <Text fontSize="xl" fontWeight="bold" paddingLeft={2}>
               Wishlist
             </Text>
           </Box>
@@ -45,6 +58,7 @@ const WishListPortal = ({ open, children, onClose }) => {
         </HStack>
 
         <Box
+          height="100%"
           paddingLeft={10}
           paddingRight={10}
           paddingBottom={10}

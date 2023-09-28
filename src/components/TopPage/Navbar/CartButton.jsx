@@ -94,7 +94,7 @@ const CartButton = () => {
                   alignItems="center"
                   justifyContent="center"
                 >
-                  <Text fontSize="xl" fontWeight="m" color="gray.600">
+                  <Text fontSize="2xl" fontWeight="m" color="gray.600">
                     Your cart is empty
                   </Text>
                 </Container>

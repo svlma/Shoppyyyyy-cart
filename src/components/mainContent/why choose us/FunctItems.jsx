@@ -21,6 +21,7 @@ const FunctItems = ({ item, text }) => {
       </Box>
 
       <Text
+        color="white"
         fontWeight="bold"
         fontSize="14px"
         paddingLeft={3}

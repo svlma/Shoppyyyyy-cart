@@ -1,11 +1,11 @@
+import { ChakraProvider } from "@chakra-ui/react";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { ChakraProvider } from "@chakra-ui/react";
-import "./index.css";
 import { RouterProvider } from "react-router-dom";
-import router from "./routes.jsx";
-import { ShoppingCartProvider } from "./context/shoppingCartContext";
 import { ItemIdProvider } from "./context/itemIdContext";
+import { ShoppingCartProvider } from "./context/shoppingCartContext";
+import "./index.css";
+import router from "./routes.jsx";
 const rootElement = document.getElementById("root");
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>

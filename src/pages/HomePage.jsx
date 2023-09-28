@@ -4,38 +4,38 @@ import ReadMore from "../components/mainContent/ReadMore";
 import { Box } from "@chakra-ui/react";
 import Funct from "../components/mainContent/why choose us/Funct";
 import SalesOff from "../components/mainContent/SalesOff";
-import ProductsHomePage from "../components/mainContent/latest collection/ProductsHomePage";
+// import ProductsHomePage from "../components/mainContent/latest collection/ProductsHomePage";
 import Reviews from "../components/mainContent/reviews/Reviews";
 import Footer from "../components/footer/Footer";
+// import CollectionCarousel from "../components/mainContent/latest collection/CollectionCarousel";
+import FakeCarousel from "../components/mainContent/latest collection/FakeCarousel";
+import Collections from "../components/mainContent/Collections";
+import BackAd from "../components/mainContent/BackAd";
+
 const HomePage = () => {
   return (
     <>
       <Background />
 
       <Box paddingTop={10}></Box>
-      <Box paddingTop={10}></Box>
-      <Box paddingTop={10}></Box>
-
-      <Box paddingTop={10} bg="blackAlpha.700" boxShadow="md"></Box>
-
       <ReadMore />
 
-      <Box paddingTop={10}></Box>
-
-      <SalesOff />
-
-      <Box paddingTop={10} bg="blackAlpha.700" boxShadow="md"></Box>
-
       <Box paddingBottom={5}>
-        <ProductsHomePage />
+        <FakeCarousel />
       </Box>
-
-      <Box paddingTop={10} bg="blackAlpha.700" boxShadow="md">
+      <Box paddingTop={10}></Box>
+      <SalesOff />
+      <Box paddingTop={10} bg="blackAlpha.900" boxShadow="md"></Box>
+      <Box paddingBottom={5}>
+        <Collections />
+      </Box>
+      <Box paddingTop={10} bg="blackAlpha.900" boxShadow="md">
         <Funct />
       </Box>
-
-      <Box paddingTop={6}></Box>
-
+      <Box paddingBottom={5} paddingTop={6}>
+        <BackAd />
+      </Box>
+      <Box bg="blackAlpha.900" boxShadow="md"></Box>
       <Reviews />
 
       <Footer />

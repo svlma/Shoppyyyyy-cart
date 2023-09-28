@@ -22,7 +22,8 @@ const Categories = ({ selectedCategory, setSelectedCategory }) => {
     { label: "Women" },
     { label: "Accessories" },
     { label: "embroidory" },
-    { label: "Designs" },
+    { label: "Tshirt Designs" },
+    { label: "purses" },
   ];
 
   return (

@@ -45,7 +45,7 @@ const CartItem = ({ id, quantity }) => {
               justifyContent: "space-between",
               alignItems: "center",
             }}
-            bg="white"
+            // bg="white"
           >
             <Stack>
               <div>
